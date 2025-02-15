@@ -1,13 +1,26 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import Pricing from './pages/Pricing'
+import Features from './pages/Features'
+import HelpCenter from './pages/HelpCenter'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-600 text-white">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8">Aurora</h1>
-        {/* Your other components will go here */}
+    <Router>
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-600">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/help" element={<HelpCenter />} />
+        </Routes>
+        <Footer />
       </div>
-    </div>
+    </Router>
   )
 }
 
